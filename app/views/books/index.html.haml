@@ -1,0 +1,5 @@
+=link_to '添加', new_book_url, :class => 'btn'
+%div
+  - @books.each do |b|
+    =b.name
+    =link_to 'delete', b, :class => 'btn', :confirm => "sure?", :method => :delete

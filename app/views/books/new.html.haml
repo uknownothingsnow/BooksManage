@@ -1,0 +1,7 @@
+=semantic_form_for @book do |f|
+  =f.inputs do
+    =f.input :name, :label => "书名"
+    =f.input :image, :label => "图片"
+    =f.input :description, :label => "简述"
+    =f.input :price, :label => "价格"
+    =f.submit "提交", :class => 'btn'

@@ -1,5 +1,7 @@
 class Book
   include Mongoid::Document
+  mount_uploader :image, BookFaceUploader
+
   field :name
   field :image
   field :description

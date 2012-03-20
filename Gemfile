@@ -14,6 +14,9 @@ gem 'haml'
 gem 'haml-rails'
 
 gem 'formtastic'
+gem 'carrierwave'
+gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
+gem 'rmagick'
 
 
 # Gems used only for assets and not required

@@ -13,6 +13,8 @@ gem 'devise'
 gem 'haml'
 gem 'haml-rails'
 
+gem 'kaminari'
+
 gem 'formtastic'
 gem 'carrierwave'
 gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'

@@ -10,6 +10,7 @@
           -if user_signed_in?
             %li.dropdown
               %a{href: 'javascript:void(0)', class: 'dropdown-toggle', 'data-toggle' => 'dropdown'}<
+            %li=link_to "后台管理", admin_root_url
             %li=link_to "退出", new_user_session_url
           -else
             %li=link_to "登录", new_user_session_url

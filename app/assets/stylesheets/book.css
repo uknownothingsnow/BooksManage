@@ -1,0 +1,11 @@
+.book_line{
+  border-bottom: 1px solid #DDD;
+  padding: 10px;
+}
+.book{
+  padding-left: 100px;
+  height: 80px;
+}
+.book_operate{
+  margin-top: 26px;
+}

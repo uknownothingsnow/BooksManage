@@ -1,0 +1,12 @@
+.box
+  -if @books.any?
+    -@books.each do |book|
+      .admin-line.admin-attribute
+        .pull-left
+          =link_to book.name, [:admin, book]
+        .pull-right
+          =link_to '编辑', edit_admin_book_url(book), :class => 'btn'
+          =link_to '删除', [:admin, book], :class => 'btn btn-danger', :confirm => "确定删除?", :method => :delete
+  -else
+    %span="没有你要找的书本"
+=link_to '添加', new_admin_book_url, :class => 'btn'

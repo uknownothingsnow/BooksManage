@@ -1,14 +1,6 @@
-=link_to '添加', new_book_url, :class => 'btn'
-%div
-  - @books.each do |b|
-    %div
-      %div
-        =link_to image_tag(b.image.url(:thumb)), b
-      %div
-        %div
-          =link_to b.name, b
-        %div
-          =b.description
-          =link_to '编辑', edit_book_url(b), :class => 'btn'
-          =link_to '删除', b, :class => 'btn', :confirm => "sure?", :method => :delete
-      %br
+.box
+  -if @books.any?
+    #books_list
+      =render 'book'
+  -else
+    %span="没有你要找的书本"

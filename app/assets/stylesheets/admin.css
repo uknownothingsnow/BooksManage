@@ -1,0 +1,19 @@
+.admin-nav{
+  margin-left: 20px;
+  width: 15%;
+  float: left;
+}
+.admin-line{
+  border-bottom: 1px solid #DDD;
+  padding: 10px;
+  height: 25px;
+}
+.admin-attribute{
+  line-height: 25px;
+}
+.admin-action{
+  padding-right: 80%;
+}
+.test{
+  padding:100px;
+}

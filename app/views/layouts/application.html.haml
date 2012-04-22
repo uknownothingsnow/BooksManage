@@ -6,6 +6,23 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body
-    .container
-      =render 'layouts/topbar'
-      =yield
+    =render 'layouts/topbar'
+    .tags-box
+      %h2="标签"
+      %ul
+        -@tags.each do |tag|
+          %li.margin-bottom
+            %span.label=link_to tag.name, show_list_by_tag_book_url(tag.id)
+    =yield
+    .search-box
+      %h2="搜索"
+      =form_tag search_books_url, :method => :get  do
+        =label_tag :name, "书名"
+        =text_field_tag :name
+        =label_tag :publish_at, "出版日期"
+        %div
+          =select_tag :publish_gteq, ((Date.today.year - 20)..Date.today.year).map{|year| "<option>#{year}</option>"}.join.html_safe, :include_blank => true
+          %span="到"
+          =select_tag :publish_lteq, ((Date.today.year - 20)..Date.today.year).map{|year| "<option>#{year}</option>"}.join.html_safe, :include_blank => true
+        =submit_tag "查询"
+      

@@ -1,0 +1,15 @@
+!!!
+%html
+  %head
+    %title BooksManageAdmin
+    = stylesheet_link_tag    "application", :media => "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  %body
+    =render 'layouts/topbar'
+    .admin-nav
+      %ul.nav.nav-pills.nav-stacked
+        %li.active=link_to '用户', admin_users_url
+        %li=link_to '图书', admin_books_url
+        %li=link_to '标签', admin_tags_url
+    =yield

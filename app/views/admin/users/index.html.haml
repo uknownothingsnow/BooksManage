@@ -7,9 +7,10 @@
       .pull-right
         =link_to '删除', [:admin, user], :class => 'btn btn-danger', :confirm => '确定删除?', :method => :delete
 .search-box
-  =form_tag search_user_admin_users_url do
-    =label_tag :email
+  %h2="搜索"
+  =form_tag search_admin_users_url, :method => :get do
+    =label_tag :email, '邮箱'
     =text_field_tag :email
-    =label_tag :name
+    =label_tag :name, '名字'
     =text_field_tag :name
-    =submit_tag
+    =submit_tag '查询'

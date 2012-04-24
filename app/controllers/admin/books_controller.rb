@@ -5,17 +5,35 @@ class Admin::BooksController < Admin::ApplicationController
     @books = Book.page(params[:page]).per(10)
   end
 
-  def destroy
-    @book.destroy
-    redirect_to books_url
+  def create
+    @book = Book.new(params[:book])
+    if @book.save
+      redirect_to admin_books_url
+    else
+      render :new
+    end
   end
 
-  def show
-    render 'books/show'
+def destroy
+  @book.destroy
+  redirect_to admin_books_url
+end
+ def search
+    books = Book.scoped
+    books = books.name_like(params[:name]) if params[:name].present?
+    books = books.publish_gteq(params[:publish_gteq]) if params[:publish_gteq].present?
+    books = books.publish_lteq(params[:publish_lteq]) if params[:publish_lteq].present?
+    @books = books.page(params[:page]).per(10)
+    render :index
   end
 
-  def new
-    @book = Book.new
+
+def show
+  render 'books/show'
+end
+
+def new
+  @book = Book.new
   end
 
   def edit

@@ -6,4 +6,12 @@
       .pull-right
         =link_to '编辑', edit_admin_tag_url(tag), :class => 'btn'
         =link_to '删除', [:admin, tag], :class => 'btn btn-danger', :confirm => "确定删除?", :method => :delete
-=link_to '添加', new_admin_tag_url, :class => 'btn'
+  .create-btn
+    =link_to '添加', new_admin_book_url, :class => 'btn'
+.search-box
+  %h2="搜索"
+  =form_tag search_admin_tags_url, :method => :get  do
+    =label_tag :name, "标签"
+    =text_field_tag :name
+    =submit_tag "查询"
+

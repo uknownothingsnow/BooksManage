@@ -14,11 +14,19 @@ BooksManage::Application.routes.draw do
 
   namespace :admin do
     root :to => "dashboards#index"
-    resources :tags
-    resources :books
+    resources :tags do
+      collection do
+        get :search
+      end
+    end
+    resources :books do
+      collection do
+        get :search
+      end
+    end
     resources :users do
       collection do
-        get :search_user
+        get :search
       end
     end
   end

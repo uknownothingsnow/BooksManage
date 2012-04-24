@@ -6,4 +6,5 @@ class Tag
 
   has_and_belongs_to_many :books
 
+  scope :name_like, lambda{|name| where(:name => /.*#{name}.*/i)}
 end

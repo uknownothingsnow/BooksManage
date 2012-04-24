@@ -9,7 +9,7 @@
     =render 'layouts/topbar'
     .admin-nav
       %ul.nav.nav-pills.nav-stacked
-        %li.active=link_to '用户', admin_users_url
-        %li=link_to '图书', admin_books_url
-        %li=link_to '标签', admin_tags_url
+        %li#users=link_to '用户', admin_users_url
+        %li#books=link_to '图书', admin_books_url
+        %li#tags=link_to '标签', admin_tags_url
     =yield

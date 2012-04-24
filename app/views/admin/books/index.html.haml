@@ -9,4 +9,17 @@
           =link_to '删除', [:admin, book], :class => 'btn btn-danger', :confirm => "确定删除?", :method => :delete
   -else
     %span="没有你要找的书本"
-=link_to '添加', new_admin_book_url, :class => 'btn'
+  .create-btn
+    =link_to '添加', new_admin_book_url, :class => 'btn'
+.search-box
+  %h2="搜索"
+  =form_tag search_admin_books_url, :method => :get  do
+    =label_tag :name, "书名"
+    =text_field_tag :name
+    =label_tag :publish_at, "出版日期"
+    %div
+      =select_tag :publish_gteq, ((Date.today.year - 20)..Date.today.year).map{|year| "<option>#{year}</option>"}.join.html_safe, :include_blank => true
+      %span="到"
+      =select_tag :publish_lteq, ((Date.today.year - 20)..Date.today.year).map{|year| "<option>#{year}</option>"}.join.html_safe, :include_blank => true
+    =submit_tag "查询"
+

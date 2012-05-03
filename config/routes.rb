@@ -6,9 +6,12 @@ BooksManage::Application.routes.draw do
   resources :books do
     member do
       get :show_list_by_tag
+      get :like
+      get :not_like
     end
     collection do
       get :search
+      get :favorite
     end
   end
 

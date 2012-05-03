@@ -3,6 +3,8 @@
     .pull-left
       =link_to image_tag(b.image.url(:thumb)), b
     .book
+      .pull-right
+        =link_to '喜欢', like_book_url(b), :remote => true
       %div
         %div
           =link_to b.name, b

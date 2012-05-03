@@ -1,0 +1,23 @@
+.box
+  -if @books.any?
+    #books_list
+      - @books.each do |b|
+        .book_line
+          .pull-left
+            =link_to image_tag(b.image.url(:thumb)), b
+          .book
+            .pull-right
+              =link_to '删除', not_like_book_url(b)
+            %div
+              %div
+                =link_to b.name, b
+              %div
+                =b.description
+              %div
+                ="#{b.count} 本"
+              %div
+                -b.tags.each do |tag|
+                  %span.label=link_to tag.name, show_list_by_tag_book_url(tag.id)
+      =paginate @books
+  -else
+    %span="没有你要找的书本"

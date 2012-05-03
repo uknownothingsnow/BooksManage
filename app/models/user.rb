@@ -2,6 +2,9 @@ class User
   include Mongoid::Document
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
+  #
+
+  has_and_belongs_to_many :books
 
   scope :name_like, lambda{|name| where(:name => /.*#{name}.*/i)}
   scope :email_like, lambda{|email| where(:email => /.*#{email}.*/i)}
@@ -14,6 +17,7 @@ class User
   field :email,              :type => String, :null => false, :default => ""
   field :name
   field :encrypted_password, :type => String, :null => false, :default => ""
+  field :role, :default => 'member'
 
   ## Recoverable
   field :reset_password_token,   :type => String
@@ -28,6 +32,10 @@ class User
   field :last_sign_in_at,    :type => Time
   field :current_sign_in_ip, :type => String
   field :last_sign_in_ip,    :type => String
+
+  def admin?
+    role == 'admin'
+  end
 
   ## Encryptable
   # field :password_salt, :type => String

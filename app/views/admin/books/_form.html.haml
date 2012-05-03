@@ -4,6 +4,7 @@
   =f.input :description, :as => :text, :label => "简述"
   =f.input :price, :label => "价格"
   =f.input :count, :label => "数量"
+  =f.input :recommend, :label => "推荐", :as => :check_boxes
   =f.input :publish_at, :label => "出版日期", :as => :select, :collection => 1990..Time.now.year
   =f.input :tags, :label => '标签', :as => :check_boxes, :collection => @tags
   =f.submit "提交"

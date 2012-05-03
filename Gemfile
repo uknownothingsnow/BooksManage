@@ -12,6 +12,7 @@ gem "bson_ext", "~> 1.5"
 gem 'devise'
 gem 'haml'
 gem 'haml-rails'
+gem 'pry'
 
 gem 'kaminari'
 

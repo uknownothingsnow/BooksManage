@@ -21,6 +21,20 @@ class BooksController < ApplicationController
     render :index
   end
 
+  def like
+   current_user.books << Book.find(params[:id])
+   respond_to :js
+  end
+
+  def not_like
+   current_user.books.delete Book.find(params[:id])
+    redirect_to favorite_books_url
+  end
+
+  def favorite
+    @books = current_user.books.page(params[:page]).per(10)
+  end
+
   private
   def find_book
     @book = Book.find(params[:id])

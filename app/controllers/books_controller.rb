@@ -5,9 +5,6 @@ class BooksController < ApplicationController
     @books = Book.page(params[:page]).per(10)
   end
 
-  def show
-  end
-
   def show_list_by_tag
     @books = Tag.find(params[:id]).books.page(params[:page]).per(10)
   end

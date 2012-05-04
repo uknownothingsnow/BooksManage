@@ -1,3 +1,4 @@
 .box
-  =@book.name
-  =@book.description
+  =image_tag @book.image_url, :style => "height:200px;width:200px"
+  %div=@book.name
+  %div=@book.description

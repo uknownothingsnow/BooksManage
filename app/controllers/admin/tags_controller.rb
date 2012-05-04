@@ -25,7 +25,7 @@ class Admin::TagsController < Admin::ApplicationController
   def edit
     @tag = Tag.find(params[:id])
   end
-  
+
   def search
     tags = Tag.scoped
     tags = tags.name_like(params[:name]) if params[:name].present?

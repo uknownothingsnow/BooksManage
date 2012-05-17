@@ -14,8 +14,6 @@
           %div
             =b.description.truncate(50, :omission => '...')
           %div
-            ="#{b.count} 本"
-          %div
             -b.tags.each do |tag|
               %span.label=link_to tag.name, show_list_by_tag_book_url(tag.id)
   %h2.center='推荐'
@@ -32,8 +30,6 @@
             =link_to b.name, b
           %div
             =b.description.truncate(50, :omission => '...')
-          %div
-            ="#{b.count} 本"
           %div
             -b.tags.each do |tag|
               %span.label=link_to tag.name, show_list_by_tag_book_url(tag.id)

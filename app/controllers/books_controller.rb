@@ -5,6 +5,10 @@ class BooksController < ApplicationController
     @books = Book.page(params[:page]).per(10)
   end
 
+  def show
+    @comment = Comment.new
+  end
+
   def show_list_by_tag
     @books = Tag.find(params[:id]).books.page(params[:page]).per(10)
   end
@@ -20,7 +24,7 @@ class BooksController < ApplicationController
 
   def like
    current_user.books << Book.find(params[:id])
-   respond_to :js
+   render :text => 'success'
   end
 
   def not_like

@@ -5,6 +5,8 @@ class Book
 
   field :name
   field :image
+  field :author
+  field :publishing_house
   field :description
   field :count, :type => Integer, :default => 1
   field :price, :type => Float
@@ -15,6 +17,7 @@ class Book
 
   has_and_belongs_to_many :tags
   has_and_belongs_to_many :users
+  has_many :comments
 
   scope :name_like, lambda{|name| where(:name => /.*#{name}.*/i)}
   scope :publish_gteq, lambda {|publish| where(:publish_at.gte => publish)}

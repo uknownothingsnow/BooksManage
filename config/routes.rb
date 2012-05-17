@@ -1,8 +1,11 @@
 BooksManage::Application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
+
   devise_for :users
 
   root :to => 'sites#index'
 
+  resources :comments
   resources :books do
     member do
       get :show_list_by_tag

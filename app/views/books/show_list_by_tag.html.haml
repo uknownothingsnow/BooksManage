@@ -1,3 +1,6 @@
 .box
   #books_list
-    =render 'book'
+    -if @books.any?
+      =render 'book'
+    -else
+      %h3.center='没有找到你想要的书'

@@ -5,6 +5,7 @@ class User
   #
 
   has_and_belongs_to_many :books
+  has_many :comments
 
   scope :name_like, lambda{|name| where(:name => /.*#{name}.*/i)}
   scope :email_like, lambda{|email| where(:email => /.*#{email}.*/i)}

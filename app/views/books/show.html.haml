@@ -1,4 +1,35 @@
 .box
-  =image_tag @book.image_url, :style => "height:200px;width:200px"
-  %div=@book.name
-  %div=@book.description
+  =image_tag @book.image_url, :style => "height:150px;width:150px;padding:20px"
+  %div.content
+    %div
+      %span='书名:'
+      =@book.name
+    %div
+      %span='出版社:'
+      =@book.publishing_house
+    %div
+      %span='出版年:'
+      =@book.publish_at
+    %div
+      %span='价格:'
+      =@book.price
+    %div
+      %span='简介:'
+      =@book.description
+  .comment
+    %span='评论:'
+    -@book.comments.each do |c|
+      %div
+        =c.user.present? ? "#{c.user.email}:" : '游客:'
+        %br
+        ="--#{c.content}"
+      %br
+  %br
+  .comment
+    =form_for @comment do |f|
+      %div
+        =f.label :content, '内容'
+        =f.text_area :content, :rows => 3
+        =f.hidden_field :book_id, :value => @book.id
+      %div
+        =f.submit '提交'

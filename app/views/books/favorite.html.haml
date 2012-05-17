@@ -12,7 +12,7 @@
               %div
                 =link_to b.name, b
               %div
-                =b.description
+                =b.description.truncate(50, :omission => '...')
               %div
                 ="#{b.count} 本"
               %div
@@ -20,4 +20,4 @@
                   %span.label=link_to tag.name, show_list_by_tag_book_url(tag.id)
       =paginate @books
   -else
-    %span="没有你要找的书本"
+    %h3.center="没有你喜欢的书"

@@ -14,7 +14,6 @@
               %li=link_to "后台管理", admin_root_url
             -else
               %li=link_to "喜欢的书", favorite_books_url
-              %li=link_to "设置", edit_user_registration_url
             %li=link_to "退出", destroy_user_session_url, :method => 'delete'
           -else
             %li=link_to "登录", new_user_session_url

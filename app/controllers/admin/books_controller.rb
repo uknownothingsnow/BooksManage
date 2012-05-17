@@ -1,5 +1,5 @@
 class Admin::BooksController < Admin::ApplicationController
-  before_filter :find_book, :only => [:show, :edit, :update, :destroy]
+  before_filter :find_book, :only => [:edit, :update, :destroy]
 
   def index
     @books = Book.page(params[:page]).per(10)
@@ -28,9 +28,9 @@ end
   end
 
 
-def show
-  render 'books/show'
-end
+#def show
+  #render 'books/show'
+#end
 
 def new
   @book = Book.new

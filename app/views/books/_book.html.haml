@@ -4,12 +4,13 @@
       =link_to image_tag(b.image.url(:thumb)), b
     .book
       .pull-right
-        =link_to '喜欢', like_book_url(b), :remote => true
+        -if current_user && !current_user.books.include?(b)
+          =link_to '喜欢', like_book_url(b), :id => b.id, :class => 'like'
       %div
         %div
           =link_to b.name, b
         %div
-          =b.description
+          =b.description.truncate(50, :omission => '...')
         %div
           ="#{b.count} 本"
         %div

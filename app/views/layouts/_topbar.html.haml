@@ -12,9 +12,20 @@
               %a{href: 'javascript:void(0)', class: 'dropdown-toggle', 'data-toggle' => 'dropdown'}<
             -if current_user.admin?
               %li=link_to "后台管理", admin_root_url
-            -else
-              %li=link_to "喜欢的书", favorite_books_url
+            %li=link_to "喜欢的书", favorite_books_url
             %li=link_to "退出", destroy_user_session_url, :method => 'delete'
           -else
             %li=link_to "登录", new_user_session_url
             %li=link_to "注册", new_user_registration_url
+.min-nav
+  %ul
+    %li.pull-left.menu=link_to '主页', root_url
+    %li.pull-left.menu=link_to '图书', books_url
+    -if user_signed_in?
+      %li.pull-left.menu=link_to "喜欢", favorite_books_url
+      %li.pull-left.menu=link_to "退出", destroy_user_session_url, :method => 'delete'
+    -else
+      %li.pull-left.menu=link_to '登录', new_user_session_url
+      %li.pull-left.menu=link_to '注册', new_user_registration_url
+  .clear-left
+  %br

@@ -7,11 +7,11 @@
       .book
         .pull-right
           -if current_user && !current_user.books.include?(b)
-            =link_to '喜欢', like_book_url(b), :remote => true
+            .like-link=link_to '喜欢', like_book_url(b), :remote => true
         %div
           %div
             =link_to b.name, b
-          %div
+          .description
             =b.description.truncate(50, :omission => '...')
           %div
             -b.tags.each do |tag|
@@ -24,11 +24,11 @@
       .book
         .pull-right
           -if current_user && !current_user.books.include?(b)
-            =link_to '喜欢', like_book_url(b), :remote => true
+            .like-link=link_to '喜欢', like_book_url(b), :remote => true
         %div
           %div
             =link_to b.name, b
-          %div
+          .description
             =b.description.truncate(50, :omission => '...')
           %div
             -b.tags.each do |tag|

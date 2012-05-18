@@ -5,7 +5,7 @@
     .book
       .pull-right
         -if current_user && !current_user.books.include?(b)
-          =link_to '喜欢', like_book_url(b), :id => b.id, :class => 'like'
+          .like-link=link_to '喜欢', like_book_url(b), :id => b.id, :class => 'like'
       %div
         %div
           =link_to b.name, b
@@ -14,4 +14,3 @@
         %div
           -b.tags.each do |tag|
             %span.label=link_to tag.name, show_list_by_tag_book_url(tag.id)
-=paginate @books

@@ -2,7 +2,7 @@
 class BooksController < ApplicationController
   before_filter :find_book, :only => [:show, :edit, :update, :destroy]
   def index
-    @books = Book.page(params[:page]).per(10)
+    @books = Book.page(params[:page]).per(5)
   end
 
   def show
@@ -10,7 +10,7 @@ class BooksController < ApplicationController
   end
 
   def show_list_by_tag
-    @books = Tag.find(params[:id]).books.page(params[:page]).per(10)
+    @books = Tag.find(params[:id]).books.page(params[:page]).per(5)
   end
 
   def search
@@ -33,7 +33,7 @@ class BooksController < ApplicationController
   end
 
   def favorite
-    @books = current_user.books.page(params[:page]).per(10)
+    @books = current_user.books.page(params[:page]).per(5)
   end
 
   private

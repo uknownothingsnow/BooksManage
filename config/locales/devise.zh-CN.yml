@@ -1,0 +1,6 @@
+"zh-CN":
+  errors:
+    messages:
+      not_saved:
+        one: "1 个错误:"
+        other: "%{count} 个错误"
